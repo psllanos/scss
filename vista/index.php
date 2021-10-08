@@ -36,6 +36,7 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
   <link rel="stylesheet" href="../Template/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <!---Estilos agregados por mi----->
   <link rel="stylesheet" href="../Template/plugins/datatables/datatables.min.css">
+  <link rel="stylesheet" href="../Template/plugins/select2/select2.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -819,5 +820,6 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
 <!-- AdminLTE for demo purposes -->
 <script src="../Template/dist/js/demo.js"></script>
 <script src="../Template/plugins/datatables/datatables.min.js"></script>
+<script src="../Template/plugins/select2/select2.min.js"></script>
 </body>
 </html>
