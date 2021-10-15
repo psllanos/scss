@@ -48,6 +48,11 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+<style>
+  .swal2-popup {
+  font-size: 1.6rem !important;
+  }
+</style>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -821,5 +826,6 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
 <script src="../Template/dist/js/demo.js"></script>
 <script src="../Template/plugins/datatables/datatables.min.js"></script>
 <script src="../Template/plugins/select2/select2.min.js"></script>
+<script src="../Template/plugins/sweetalert2/sweetalert2.js"></script>
 </body>
 </html>

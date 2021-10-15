@@ -47,4 +47,14 @@ class Modelo_Usuario
             $this->conexion->cerrar();
         }
     }
+
+    function Registrar_Usuario($usuario,$contra,$sexo,$rol){
+        $sql = "call SP_REGISTRAR_USUARIO('$usuario','$contra','$sexo','$rol')";
+        if ($consulta = $this->conexion->conexion->query($sql)) {
+            if ($row = mysqli_fetch_array($consulta)) {
+                    return $id= trim($row[0]);
+            }
+            $this->conexion->cerrar();
+        }
+    }
 }

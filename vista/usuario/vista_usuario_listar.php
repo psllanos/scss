@@ -61,7 +61,7 @@
                     <h4 class="modal-title">Registro de Usuario</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="col-lg-15">
+                    <div class="col-lg-20">
                         <label for="">Usuario</label>
                         <input type="text" class="form-control" id="txt_usu" placeholder="Ingrese Usuario"><br>
                     </div>
@@ -69,11 +69,11 @@
                         <label for="">Contrase&ntilde;a</label>
                         <input type="password" class="form-control" id="txt_con1" placeholder="Ingrese Contrase&ntilde;a"><br>
                     </div>
-                    <div class="col-lg-15">
+                    <div class="col-lg-20">
                         <label for="">Repita la Contrase&ntilde;a</label>
                         <input type="password" class="form-control" id="txt_con2" placeholder="Repita la Contrase&ntilde;a"><br>
                     </div>
-                    <div class="col-lg-15">
+                    <div class="col-lg-20">
                         <label for="">Sexo</label>
                         <select class="js-example-basic-single" name="state" id="cdm_sexo" style="width: 100%;">
                             <option value="">Seleccione</option>
@@ -81,7 +81,7 @@
                             <option value="F">Femenino</option>
                         </select><br><br>
                     </div>
-                    <div class="col-lg-15">
+                    <div class="col-lg-20">
                         <label for="">Rol</label>
                         <select class="js-example-basic-single" name="state" id="cdm_rol" style="width: 100%;">
                         </select><br><br>
@@ -90,7 +90,7 @@
 
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary">Registrar</button>
+                <button class="btn btn-primary" onclick="RegistrarUsuario()">Registrar</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
             </div>
         </div>

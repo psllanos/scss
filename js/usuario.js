@@ -74,9 +74,9 @@ function VerificarUsuario() {
     }
   });
 }
-
+var table;
 function listar_usuario() {
-  var table = $("#tabla_usuario").DataTable({
+  table = $("#tabla_usuario").DataTable({
     ordering: false,
     paging: false,
     searching: { regex: true },
@@ -161,10 +161,78 @@ function listar_combo_rol() {
     }
   });
 }
-function RegistrarUsuario(){
+function RegistrarUsuario() {
   var usu = $("#txt_usu").val();
   var contra = $("#txt_con1").val();
   var contra2 = $("#txt_con2").val();
   var sexo = $("#cdm_sexo").val();
   var rol = $("#cdm_rol").val();
+  if (
+    usu.length == 0 ||
+    contra.length == 0 ||
+    contra2.length == 0 ||
+    sexo.length == 0 ||
+    rol.length == 0
+  ) {
+    return Swal.fire(
+      "Mensaje De Advertencia",
+      "Todos los campos son obligatorios",
+      "warning"
+    );
+  }
+  if (contra != contra2) {
+    return Swal.fire(
+      "Mensaje de advertencia",
+      "Las contraseñas no coinciden",
+      "warning"
+    );
+  }
+  $.ajax({
+    url: "../controlador/usuario/controlador_usuario_registrar.php",
+    type: "POST",
+    data: {
+      usuario:usu,
+      contrasena:contra,
+      sexo:sexo,
+      rol:rol,
+    },
+  }).done(function (resp) {
+    
+    if (resp > 0) {
+      if (resp == 1) {
+        $("#modal_registro").modal("hide");
+        setTimeout(() => {
+          resolve({
+            '#ff0000': 'Red',
+            '#00ff00': 'Green',
+            '#0000ff': 'Blue'
+          })
+        }, 1000);
+        Swal.fire(
+          "Mensaje de confirmacion",
+          "Datos Correctos, Nuevo Usuario Registrado",
+          "success"
+        ).then((value) => {
+          limpiarRegistro();
+          table.ajax.reload();
+        });
+      }else{
+        return Swal.fire(
+          "Mensaje de Advertencia","Lo sentimos el usuario ya se encuentra en la base de datos","error");
+      }
+    } else {
+      Swal.fire(
+        "Mensaje de error",
+        "Lo sentimos, no se pudo generar el  registro",
+        "error"
+      );
+    }
+  });
+}
+function limpiarRegistro() {
+  $("#txt_usu").val("");
+  $("#txt_con1").val("");
+  $("#txt_con2").val("");
+  $("#cdm_sexo").val("");
+  $("#cdm_rol").val("");
 }
